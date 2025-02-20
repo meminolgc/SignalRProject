@@ -1,6 +1,5 @@
 ﻿using SignalR.DataAccessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
-using SignalR.DataAccessLayer.EntityFramework;
 using SignalR.DataAccessLayer.Repositories;
 using SignalR.EntityLayer.Entities;
 using System;
@@ -11,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace SignalR.DataAccessLayer.EntityFramework
 {
-    public class EfAboutDal : GenericRepository<About>, IAboutDal
-    {
-        public EfAboutDal(SignalRContext context) : base(context)
-        {
-        }
-    }
+	public class EfOrderDetailDal : GenericRepository<OrderDetail>, IOrderDetailDal
+	{
+		public EfOrderDetailDal(SignalRContext context) : base(context)
+		{
+		}
+	}
 }
+
 
