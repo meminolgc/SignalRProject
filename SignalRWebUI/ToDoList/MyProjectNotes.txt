@@ -1,0 +1,27 @@
+﻿
+Projede Yanlış Yapılan Şeyler ve Öğrendiğim Şeyler 
+
+--> Api Consume işlemleri controllerlar içerisinde yapıldı fakat bu yanlış bir yaklaşım olmuş.
+    -- Temiz kod prensiplerine aykırı.
+    -- Eğer API çağrısı sadece bir kere ve bir yerde kullanılacaksa controller içinde yapılabilir.
+    -- Ancak, API çağrısı birden fazla yerde kullanılacaksa bir component/service class içinde yapılması daha doğrudur.
+    -- Best practice olarak API çağrılarını bir service/component içinde yapmak daha doğrudur.
+    -- Controller'lar sadece yönlendirme yapmalı, iş mantığı ve API çağrıları component içinde olmalı.
+    
+Controller'ın Görevi Nedir? 
+    --> ASP.NET MVC veya API projelerinde Controller, gelen HTTP isteklerini yöneten ve doğru servisleri çağırarak uygun yanıtları döndüren bir bileşendir.
+    --> Controller'ın Temel Görevleri:
+        -- İstekleri Yönlendirmek
+        -- İş Mantığını İçermemek (veri işleme, API çağrısı yapma, doğrulama, hesaplama gibi işlemler olmamalıdır.)
+        -- İstekleri ve Yanıtları Yönetmek
+
+Controller'a Ne Yazılmalı?
+    -- HTTP isteklerini karşılamak
+    -- İstek doğrulaması yapmak (Validation & ModelState kontrolü)
+    -- Service veya Repository çağrısı yapmak
+    -- HTTP yanıtlarını uygun formatta istemciye döndürmek
+    -- Yetkilendirme ve kimlik doğrulama (Authentication & Authorization) kontrolleri yapmak
+
+
+
+
