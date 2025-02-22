@@ -22,6 +22,20 @@ Controller'a Ne Yazılmalı?
     -- HTTP yanıtlarını uygun formatta istemciye döndürmek
     -- Yetkilendirme ve kimlik doğrulama (Authentication & Authorization) kontrolleri yapmak
 
+--> Dal Kısmında metod sorgusu yazarken sürekli 'using var context = new SignalRContext();' bu kodu yazıyoruz. Bu doğru bir kullanım mı ? 
+    -- using bloğu, context nesnesinin otomatik olarak bellekten temizlenmesini sağlar.
+    -- using bloğu sayesinde context metot tamamlandıktan sonra bellekten temizlenir ve gereksiz kaynak tüketimi önlenir.
+    -- Daha İyi Bir Alternatif: Dependency Injection ile Kullanım.
 
+Ajax Nedir? 
+    -- web sayfalarının tamamen yenilenmesine gerek kalmadan sunucuyla asenkron olarak veri alışverişi yapmasını sağlayan bir tekniktir.
+    Tarayıcı ile sunucu arasındaki iletişimi hızlandırarak kullanıcı deneyimini iyileştirir.
 
+Nasıl Çalışır? (Mantığı)
+    -- Kullanıcı, sayfada bir işlem yapar (örneğin bir butona tıklar).
+    -- JavaScript, AJAX isteğini başlatır.
+    -- XMLHttpRequest veya Fetch API kullanılarak, arka planda sunucuya bir istek gönderilir.
+    -- Sunucu isteği işler ve yanıt olarak genellikle JSON, XML veya HTML formatında veri döndürür.
+    -- JavaScript, gelen yanıtı işler ve sayfanın ilgili bölümlerini günceller.
+    --Bu süreç, tüm sayfanın yeniden yüklenmesini engellediği için hızlı ve kullanıcı dostu bir deneyim sağlar.
 
