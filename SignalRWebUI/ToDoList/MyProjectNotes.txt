@@ -1,6 +1,4 @@
 ﻿
-Projede Yanlış Yapılan Şeyler ve Öğrendiğim Şeyler 
-
 --> Api Consume işlemleri controllerlar içerisinde yapıldı fakat bu yanlış bir yaklaşım olmuş.
     -- Temiz kod prensiplerine aykırı.
     -- Eğer API çağrısı sadece bir kere ve bir yerde kullanılacaksa controller içinde yapılabilir.
@@ -38,4 +36,12 @@ Nasıl Çalışır? (Mantığı)
     -- Sunucu isteği işler ve yanıt olarak genellikle JSON, XML veya HTML formatında veri döndürür.
     -- JavaScript, gelen yanıtı işler ve sayfanın ilgili bölümlerini günceller.
     --Bu süreç, tüm sayfanın yeniden yüklenmesini engellediği için hızlı ve kullanıcı dostu bir deneyim sağlar.
+
+PartialView ve ViewComponents
+    --> PartialView yapılanması ihtiyacı olan dataları Controller üzerinden elde edeceği için Controller'daki 
+    maliyeti arttırrmakta ve SOLID Prensiplerine aykırı davranmasına sebebiyet verebilmektedir.
+    PV. yapısal olarak controller üzerinden beslenmektedir.
+
+    --> ViewComponent, ihtiyacı olan dataları controller üzerinden değil, direkt kendi .cs dosyasından elde
+    edebilmektedir. Böylece Controllerdaki lüzumsuz maliyeti ortadan kaldırmış olmaktayız.
 
