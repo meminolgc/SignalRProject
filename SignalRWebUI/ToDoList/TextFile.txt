@@ -22,6 +22,9 @@
 
 !! _UILayoutFooterComponentPartial sayfasında footer alanındaki sosyal medya ve contact entities için bir viewmodel oluştur ve view kısmında bu iki tabloyu
 kullan.
+!! Rezervasyonlarda yeni bir metod yaz ve onaylanan rezervasyonlarla bekleyen rezervasyonların sayfalarını ayır.
+!! Arama İşlemi -- Search
+!! LogOut
 
 // Müşteri masaya oturduğunda Orders Tablosunda durumu "Müşteri Masada" olarak güncellenir.
 Sipariş edilen ürünlerin adetlerine göre fiyatları hesaplanarak toplam tutar belirlenir.

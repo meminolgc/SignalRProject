@@ -1,4 +1,5 @@
 ﻿namespace SignalRWebUI.Dtos.SliderDtos
+
 {
 	public class ResultSliderDto
 	{
