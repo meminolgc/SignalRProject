@@ -30,3 +30,5 @@ kullan.
 Sipariş edilen ürünlerin adetlerine göre fiyatları hesaplanarak toplam tutar belirlenir.
 Müşteri durumu "Hesap Kapatıldı" olduğunda, toplam tutar Kasa tablosuna eklenir.
 Eğer sipariş iptal edilirse, ilgili tutar kasadan düşülür. Bu işlemler Trigger kullanılarak otomatik olarak gerçekleştirildi.
+
+// Trigger işlemleriyle neler yapıldığını not et.
