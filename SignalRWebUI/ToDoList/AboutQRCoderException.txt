@@ -1,0 +1,1 @@
+﻿QRCoder.dll dosyası projeye path olarak kaydedildi. Bu yüzden hata olduğunda tekrardan QRCoder.dll dosyasını indirip path vermek gerekmektedir.

@@ -35,6 +35,18 @@ namespace SignalRApi.Controllers
             return Ok(_productService.TProductCount());
         }
 
+		[HttpGet("TotalPriceByDrinkCategory")]
+		public IActionResult TotalPriceByDrinkCategory()
+		{
+			return Ok(_productService.TTotalPriceByDrinkCategory());
+		}
+
+		[HttpGet("TotalPriceBySaladCategory")]
+		public IActionResult TotalPriceBySaladCategory()
+		{
+			return Ok(_productService.TTotalPriceBySaladCategory());
+		}
+
 		[HttpGet("ProductNameByMaxPrice")]
 		public IActionResult ProductNameByMaxPrice()
 		{
@@ -71,6 +83,12 @@ namespace SignalRApi.Controllers
 			return Ok(_productService.TProductPriceAvg());
 		}
 
+		[HttpGet("ProductPriceBySteakBurger")]
+		public IActionResult ProductPriceBySteakBurger()
+		{
+			return Ok(_productService.ProductPriceBySteakBurger());
+		}
+
 		[HttpGet("ProductListWithCategory")]
         public IActionResult ProductListWithCategory()
         {
@@ -91,15 +109,8 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
-            _productService.TAdd(new Product()
-            {
-                Description = createProductDto.Description,
-                ImageUrl = createProductDto.ImageUrl,
-                Price = createProductDto.Price,
-                ProductName = createProductDto.ProductName,
-                ProductStatus = createProductDto.ProductStatus,
-                CategoryID = createProductDto.CategoryID
-            });
+           var value = _mapper.Map<Product>(createProductDto);
+            _productService.TAdd(value);
             return Ok("Ürün Eklendi");
         }
 
@@ -115,23 +126,22 @@ namespace SignalRApi.Controllers
         public IActionResult GetProduct(int id)
         {
             var value = _productService.TGetByID(id);
-            return Ok(value);
+            return Ok(_mapper.Map<GetProductDto>(value));
         }
 
         [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
-            _productService.TUpdate(new Product()
-            {
-                ProductStatus = updateProductDto.ProductStatus,
-                ProductName = updateProductDto.ProductName,
-                ProductID = updateProductDto.ProductID,
-                Price = updateProductDto.Price,
-                ImageUrl = updateProductDto.ImageUrl,
-                Description = updateProductDto.Description,
-                CategoryID = updateProductDto.CategoryID
-            });
-            return Ok("Ürün Güncellendi");
+			var value = _mapper.Map<Product>(updateProductDto);
+			_productService.TUpdate(value);
+			return Ok("Ürün Güncellendi");
+        }
+
+        [HttpGet("GetLast9Products")]
+        public IActionResult GetLast9Products()
+        {
+            var value = _productService.TGetLast9Products();
+            return Ok(value);
         }
     }
 }

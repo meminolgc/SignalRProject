@@ -81,8 +81,29 @@ namespace SignalR.BusinessLayer.Concrete
 
 		public decimal TProductAvgPriceByHamburger()
 		{
-			using var context = new SignalRContext();
-			return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Hamburger").Select(z => z.CategoryID).FirstOrDefault())).Average(w => w.Price);
+			//using var context = new SignalRContext();
+			//return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Hamburger").Select(z => z.CategoryID).FirstOrDefault())).Average(w => w.Price);
+			return _productDal.ProductAvgPriceByHamburger();
+		}
+
+		public decimal ProductPriceBySteakBurger()
+		{
+			return _productDal.ProductPriceBySteakBurger();
+		}
+
+		public decimal TTotalPriceBySaladCategory()
+		{
+			return _productDal.TotalPriceBySaladCategory();
+		}
+
+		public decimal TTotalPriceByDrinkCategory()
+		{
+			return _productDal.TotalPriceByDrinkCategory();
+		}
+
+		public List<Product> TGetLast9Products()
+		{
+			return _productDal.GetLast9Products();
 		}
 	}
 }
