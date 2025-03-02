@@ -1,4 +1,6 @@
-﻿using SignalR.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.IdentityModel.Tokens;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
 using SignalR.DataAccessLayer.Repositories;
 using SignalR.EntityLayer.Entities;
@@ -14,6 +16,22 @@ namespace SignalR.DataAccessLayer.EntityFramework
 	{
 		public EfMenuTableDal(SignalRContext context) : base(context) 
 		{
+		}
+
+		public void ChangeMenuTableStatusToFalse(int id)
+		{
+			using var context = new SignalRContext();
+			var value = context.MenuTables.Where(x => x.MenuTableID == id).FirstOrDefault();
+			value.Status = false;
+			context.SaveChanges();
+		}
+
+		public void ChangeMenuTableStatusToTrue(int id)
+		{
+			using var context = new SignalRContext();
+			var value = context.MenuTables.Where(x => x.MenuTableID == id).FirstOrDefault();
+			value.Status = true;
+			context.SaveChanges();
 		}
 
 		public int MenuTableCount()

@@ -21,21 +21,15 @@
                 </h2>
             </div>
 
-            <ul class="filters_menu">
-                <li class="active" data-filter="*">Tüm Ürünler</li>
-                <li data-filter=".burger">Hamburger</li>
-                <li data-filter=".pizza">Pizza</li>
-                <li data-filter=".pasta">Makarna</li>
-                <li data-filter=".pasta">Salata</li>
-                <li data-filter=".pasta">İçecek</li>
-                <li data-filter=".fries">Atıştırmalık</li>
-            </ul>
+
+            @await Component.InvokeAsync("_MenuCategoryFilterComponentPartial")
+           
 
             <div class="filters-content">
                 <div class="row grid">
                     @foreach (var item in Model)
                     {
-                        <div class="col-sm-6 col-lg-4 all pizza">
+                        <div class="col-sm-6 col-lg-4 all @item.CategoryName">
                             <div class="box">
                                 <div>
                                     <div class="img-box">
@@ -52,7 +46,7 @@
                                             <h6>
                                                 @item.Price₺
                                             </h6>
-                                            <a href="#" onclick="showproductid(@item.ProductID)">
+                                            <a href="#" onclick="showproductid(@item.ProductID, @ViewBag.v)">
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                 <g>
                                                 <g>
@@ -127,19 +121,23 @@
     @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
 
     <script>
-        function showproductid(value)
-        {
-            var id = value;
+         function showproductid(productId, menuTableId) {
             $.ajax({
-                type:'POST',
-                data: {item : id},
-                url: "/Menu/AddBasket/" + id,
-                contentType: 'json',
-                success:function(){
-                    swal("Seçilen Ürün ID:" + id, "Ürün Sepetinize Eklendi", "success");
+                type: 'POST',
+                url: "/Menu/AddBasket",
+                data: {
+                    id: productId,
+                    menuTableId: menuTableId // MenuTableId burada gönderiliyor
+                },
+                success: function () {
+                    swal("Seçilen Ürün ID:" + productId, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
+                },
+                error: function (xhr, status, error) {
+                    console.error("Hata:", error);
+                    console.log("Yanıt:", xhr.responseText);
                 }
             });
-        }
+        };
 
 
     </script>
