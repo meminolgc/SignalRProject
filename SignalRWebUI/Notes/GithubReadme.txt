@@ -30,3 +30,21 @@
 
 
 style="width: 100%; height: auto;
+
+
+ admin ve vitrin panelleri bulunan
+ sıfırdan bir restoran için sipariş yönetimi uygulaması
+ uygulamada backend kısmında Api kullandık
+ Backende kullandığımız bu Api yapısını UI tarafında consume ettik.
+ Rezervasyon işlemleri için kullanıcılarımıza mail gönderdik.
+ SignalR ile anlık bildirim, anlık mesajlaşma, anlık sepet gibi işlemleri gerçekleştirdik.
+
+
+ ASP.NET Core ile geliştirilen bu restoran sipariş yönetimi uygulaması, hem işletme sahipleri hem de müşteriler için verimli bir deneyim sunacak şekilde tasarlanıldı.
+
+Uygulama, admin paneli ve vitrin paneli olmak üzere iki ana bileşenden oluşmaktadır. Backend tarafında API mimarisi kullanılmış ve UI tarafında bu API consume edilerek
+kullanıcı dostu bir arayüz oluşturuldu.
+
+Rezervasyon işlemleri, kullanıcıların süreci kolayca takip edebilmesi için e-posta bildirimleriyle desteklendi. Ayrıca, SignalR entegrasyonu sayesinde
+anlık bildirimler, mesajlaşma, istatistikler ve sepet yönetimi gibi işlemler gerçek zamanlı olarak gerçekleştirildi.
+Bu sayede, restoranların sipariş ve rezervasyon süreçlerini modern bir altyapıyla yönetmesine olanak tanıyan esnek ve güçlü bir sistem ortaya çıkarıldı.

@@ -15,7 +15,7 @@ namespace SignalRWebUI.Controllers
 
 		public async Task<IActionResult> Index(int id)
 		{
-			TempData.["id"] = id;
+			TempData["id"] = id;
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync("https://localhost:44365/api/Baskets/BasketListByMenuTableWithProductName?id="+id);
 			if (responseMessage.IsSuccessStatusCode)
